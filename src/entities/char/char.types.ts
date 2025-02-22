@@ -8,4 +8,5 @@ export interface CharGetResponse {
   skin_color: 'Fair'
   created: '2014-12-09T13:50:51.644000Z'
   edited: '2014-12-10T13:52:43.172000Z'
+  url: 'https://swapi.dev/api/people/1/'
 }

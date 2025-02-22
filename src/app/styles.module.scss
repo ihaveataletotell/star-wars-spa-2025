@@ -1,3 +1,10 @@
+body {
+  --mantine-color-body: #e7f5ff;
+
+  background: linear-gradient(45deg, #e7f5ff, #d0ebff);
+  overflow: hidden;
+}
+
 .test {
   color: red;
 }

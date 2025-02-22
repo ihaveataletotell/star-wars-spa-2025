@@ -9,7 +9,7 @@ class StarWarsApiClient {
   }
 
   get = async <Req extends StarWarsGetSearchParams, Res>(params: StarWarsGetParams<Req>): Promise<Res> => {
-    const path = `${this.basePath}/${params.path}`
+    const path = `${this.basePath}${params.path}`
     return this.apiClient.get<Req, Res>({ ...params, path })
   }
 }
