@@ -17,14 +17,14 @@ describe('chars list', () => {
 
     it('works is base case', () => {
       expect(spy).not.toHaveBeenCalled()
-      renderHook(() => useCharsList())
+      renderHook(() => useCharsList(1, ''))
 
       expect(spy).toHaveBeenCalledTimes(1)
-      expect(spy.mock.calls[0]).toStrictEqual([{ path: StarWarsApiPath.people, search: void 0 }])
+      expect(spy.mock.calls[0]).toStrictEqual([{ path: StarWarsApiPath.people, search: { page: '1', search: '' } }])
     })
 
     it('works when pass params', () => {
-      renderHook(() => useCharsList({ page: '2', search: 'test' }))
+      renderHook(() => useCharsList(2, 'test'))
 
       expect(spy).toHaveBeenCalledTimes(1)
       expect(spy.mock.calls[0]).toStrictEqual(

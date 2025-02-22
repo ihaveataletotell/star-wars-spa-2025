@@ -1,1 +1,1 @@
-export * from "./api-client.common.ts";
+export * from './api-client.common.ts'

@@ -1,6 +1,6 @@
 import type { ChangeEvent } from 'react'
 import { Input } from '@mantine/core'
-import { charsListService } from 'entities/chars-list'
+import { charsListService } from 'features/chars-list'
 import { useService } from 'shared/use-service'
 
 export function CharsForm() {

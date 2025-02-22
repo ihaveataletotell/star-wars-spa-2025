@@ -1,12 +1,17 @@
 import type { CharGetResponse } from 'entities/char'
-import type { DataTableColumn } from 'mantine-datatable'
-import { useMantineTheme } from '@mantine/core'
-import { charsListService, useCharsList } from 'entities/chars-list'
+import type { DataTableColumn, DataTableRowClickHandler } from 'mantine-datatable'
+import { Alert, Button, useMantineTheme } from '@mantine/core'
+import { useCharsList } from 'entities/chars-list'
+import { charsListService } from 'features/chars-list'
 import { DataTable } from 'mantine-datatable'
 import { useMemo } from 'react'
 import { useService } from 'shared/use-service'
 
-export function CharsTable() {
+interface Props {
+  onRowClick?: (row: CharGetResponse) => void
+}
+
+export function CharsTable({ onRowClick }: Props) {
   const { colors } = useMantineTheme()
   const tableConfig: Array<DataTableColumn<CharGetResponse>> = useMemo(() => {
     return [
@@ -19,9 +24,24 @@ export function CharsTable() {
   }, [])
 
   const { page, search, query, sortStatus } = useService(charsListService)
-  const { data, isLoading, isFetching } = useCharsList(page, query)
+  const { data, isLoading, isFetching, error, refetch } = useCharsList(page, query)
 
   const isFaded = search !== query || isFetching
+
+  if (!data) {
+    if (error) {
+      return (
+        <Alert variant="light" title="Fetch error" color="red">
+          {error.json ? <pre>{JSON.stringify(error.json)}</pre> : error.text}
+          <Button mt="sm" color="red" variant="outline" display="block" disabled={isLoading} onClick={() => void refetch()}>Retry</Button>
+        </Alert>
+      )
+    }
+  }
+
+  const handleRowClick: DataTableRowClickHandler<CharGetResponse> = (params): void => {
+    onRowClick?.(params.record)
+  }
 
   return (
     <DataTable<CharGetResponse>
@@ -46,6 +66,8 @@ export function CharsTable() {
       onPageChange={charsListService.setPage}
       recordsPerPage={10}
       totalRecords={data?.count}
+      // actions
+      onRowClick={handleRowClick}
     />
   )
 }

@@ -1,7 +1,8 @@
 body {
   --mantine-color-body: #e7f5ff;
+  --body-bg: linear-gradient(45deg, #e7f5ff, #d0ebff);
 
-  background: linear-gradient(45deg, #e7f5ff, #d0ebff);
+  background: var(--body-bg);
   overflow: hidden;
 }
 

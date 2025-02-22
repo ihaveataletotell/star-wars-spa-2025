@@ -1,3 +1,7 @@
+export interface CharGetRequest {
+  id: string
+}
+
 export interface CharGetResponse {
   gender: 'Male' | 'Female'
   hair_color: 'Blond'
@@ -6,6 +10,7 @@ export interface CharGetResponse {
   mass: '77'
   name: 'Luke Skywalker'
   skin_color: 'Fair'
+  eye_color: 'Blue'
   created: '2014-12-09T13:50:51.644000Z'
   edited: '2014-12-10T13:52:43.172000Z'
   url: 'https://swapi.dev/api/people/1/'
