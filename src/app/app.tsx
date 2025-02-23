@@ -15,22 +15,28 @@ const theme = createTheme({
 if (routerConfig.router === null) {
   routerConfig.router = createBrowserRouter([
     {
-      path: '/chars',
       element: <AppLayoutUi />,
       children: [
         {
-          index: true,
-          Component: CharsListPageLazy,
+          path: '/chars',
+          children: [
+            {
+              index: true,
+              Component: CharsListPageLazy,
+            },
+            {
+              path: '/chars/:id',
+              Component: CharPageLazy,
+            },
+          ],
         },
         {
-          path: '/chars/:id',
-          Component: CharPageLazy,
+          path: '*',
+          element: (
+            <Navigate to="/chars" replace />
+          ),
         },
       ],
-    },
-    {
-      path: '*',
-      element: <Navigate to="/chars" />,
     },
   ])
 }

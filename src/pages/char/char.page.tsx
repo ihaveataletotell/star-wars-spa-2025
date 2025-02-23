@@ -50,6 +50,10 @@ function CharPageImpl({ char, id }: Props): JSX.Element {
           Main
         </Anchor>
 
+        <Anchor onClick={handleLinkClick} tt="capitalize" fz="sm" c="dark.4" href="/chars">
+          Characters
+        </Anchor>
+
         <Anchor onClick={handleLinkClick} tt="capitalize" fz="sm" c="dark.4" href={`/chars/${id}`}>
           Edit Character
           {' '}

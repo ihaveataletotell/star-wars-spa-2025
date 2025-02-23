@@ -12,7 +12,7 @@ export function AppLayoutUi() {
         <Text variant="h1" fw="bold">Star Wars Backoffice</Text>
       </AppShell.Header>
 
-      <AppShell.Main>
+      <AppShell.Main style={{ maxWidth: 1000, margin: '0 auto' }}>
         <Outlet />
       </AppShell.Main>
 
