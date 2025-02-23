@@ -2,13 +2,14 @@ import type { CharGetResponse } from 'entities/char/char.types'
 import type { FormStoreStructure } from 'shared/store-form'
 import { charCacheService } from 'entities/char-cache'
 import { routerConfig } from 'entities/router'
+import _ from 'lodash'
 import { StoreForm } from 'shared/store-form'
 
 export type CharForm = FormStoreStructure<CharGetResponse>
 
 export class CharEditService extends StoreForm<CharGetResponse> {
   // url будет являться идентификатором сущности, тк API не предоставляет отдельное поле id
-  readonly readonlyFields: Set<keyof CharGetResponse> = new Set(['url'])
+  readonly readonlyFields: Set<keyof CharGetResponse> = new Set(['url', 'edited'])
 
   constructor(fields: CharGetResponse) {
     super(fields)
@@ -25,7 +26,11 @@ export class CharEditService extends StoreForm<CharGetResponse> {
 
   handleSave = (): void => {
     const value = this.getValue()
-    charCacheService.handleSave(value)
+
+    if (!_.isEqual(value, this.fields)) {
+      charCacheService.handleSave({ ...value, edited: new Date().toISOString() })
+    }
+
     void routerConfig.router.navigate('/chars')
   }
 }

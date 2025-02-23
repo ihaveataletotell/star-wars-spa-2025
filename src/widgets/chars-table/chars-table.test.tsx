@@ -1,7 +1,3 @@
-/* eslint-disable perfectionist/sort-imports */
-import '@mantine/core/styles.layer.css'
-import 'mantine-datatable/styles.css'
-import 'mantine-datatable/styles.layer.css'
 import type { CharGetResponse } from 'entities/char'
 import type { CharsListGetResponse } from 'entities/chars-list'
 import type { Mock } from 'vitest'

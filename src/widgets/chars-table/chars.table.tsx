@@ -6,7 +6,6 @@ import { charsListService } from 'features/chars-list'
 import { DataTable } from 'mantine-datatable'
 import { useMemo } from 'react'
 import { useService } from 'shared/use-service'
-import 'mantine-datatable/styles.layer.css'
 
 interface Props {
   onRowClick?: (row: CharGetResponse) => void

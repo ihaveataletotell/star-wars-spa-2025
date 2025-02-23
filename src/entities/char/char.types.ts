@@ -8,7 +8,7 @@ export interface CharGetResponse {
   height: '172'
   homeworld: 'https://swapi.dev/api/planets/1/'
   mass: '77'
-  name: 'Luke Skywalker'
+  name: 'Luke Skywalker' | string
   skin_color: 'Fair'
   eye_color: 'Blue'
   created: '2014-12-09T13:50:51.644000Z' | string

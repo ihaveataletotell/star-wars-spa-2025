@@ -1,7 +1,7 @@
 import type { MouseEvent } from 'react'
 import type { createBrowserRouter } from 'react-router-dom'
 
-type RouterType = ReturnType<typeof createBrowserRouter>
+export type RouterType = ReturnType<typeof createBrowserRouter>
 
 export const routerConfig: { router: RouterType } = {
   router: null as unknown as RouterType,

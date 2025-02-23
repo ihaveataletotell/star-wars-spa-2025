@@ -5,7 +5,7 @@ import { createStore } from 'zustand/vanilla'
 export abstract class StoreForm<Fields> extends SubWithCount {
   readonly form: FormStoreStructure<Fields>
 
-  constructor(private fields: Fields) {
+  constructor(protected fields: Fields) {
     super()
     this.form = this.createForm(fields)
   }

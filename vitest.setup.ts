@@ -28,4 +28,31 @@ class ResizeObserver {
   disconnect() {}
 }
 
+const mockLocalStorage = (() => {
+  let store = {} as Storage
+
+  return {
+    getItem(key: string) {
+      // eslint-disable-next-line ts/no-unsafe-return
+      return store[key]
+    },
+
+    setItem(key: string, value: string) {
+      store[key] = value
+    },
+
+    removeItem(key: string) {
+      delete store[key]
+    },
+
+    clear() {
+      store = {} as Storage
+    },
+  }
+})()
+
+Object.defineProperty(window, 'localStorage', {
+  value: mockLocalStorage,
+})
+
 window.ResizeObserver = ResizeObserver
