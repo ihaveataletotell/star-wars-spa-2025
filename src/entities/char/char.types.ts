@@ -11,7 +11,7 @@ export interface CharGetResponse {
   name: 'Luke Skywalker'
   skin_color: 'Fair'
   eye_color: 'Blue'
-  created: '2014-12-09T13:50:51.644000Z'
-  edited: '2014-12-10T13:52:43.172000Z'
+  created: '2014-12-09T13:50:51.644000Z' | string
+  edited: '2014-12-10T13:52:43.172000Z' | string
   url: 'https://swapi.dev/api/people/1/'
 }

@@ -14,5 +14,12 @@ export default defineConfig({
       },
     },
   },
+  test: {
+    include: ['./src/**/*.test.ts', './src/**/*.test.tsx'],
+    globals: true,
+    environment: 'jsdom',
+    setupFiles: ['./vitest.setup.ts'],
+    css: true,
+  },
   plugins: [tsconfigPaths(), react()],
 })

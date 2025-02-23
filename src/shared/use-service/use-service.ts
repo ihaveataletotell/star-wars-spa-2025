@@ -1,11 +1,11 @@
 import type { StoreApi } from 'zustand/vanilla'
 import { useLayoutEffect, useSyncExternalStore } from 'react'
 
-interface Service<State> {
+export interface Service<State> {
   store: StoreApi<State>
 }
 
-interface Subscribable {
+export interface Subscribable {
   doSubscribe: () => VoidFunction
 }
 
@@ -19,7 +19,7 @@ export function useService<State>(service: Service<State> & Subscribable): State
 
 let isUpdatesDisabledInUI = false
 
-function useZustandStore<State>(store: StoreApi<State>): State {
+export function useZustandStore<State>(store: StoreApi<State>): State {
   return useSyncExternalStore((onChange) => {
     return store.subscribe(() => {
       if (isUpdatesDisabledInUI) {

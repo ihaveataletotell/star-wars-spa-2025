@@ -1,1 +1,2 @@
-export * from './use-chars-list.ts'
+export * from './chars-list.types'
+export * from './use-chars-list'
