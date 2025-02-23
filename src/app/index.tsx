@@ -1,8 +1,7 @@
 /* eslint-disable perfectionist/sort-imports */
-import './styles.css'
-import '@mantine/core/styles.css'
+import './styles.scss'
+import '@mantine/core/styles.layer.css'
 import 'mantine-datatable/styles.layer.css'
-import './styles.module.scss'
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { App } from './app'

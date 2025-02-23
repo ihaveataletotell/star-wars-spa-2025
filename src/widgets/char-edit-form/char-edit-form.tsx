@@ -32,11 +32,11 @@ export function CharEditForm({ service }: Props): JSX.Element {
 
   return (
     <>
-      <Card my="md" mah="70vh" style={{ overflow: 'auto' }}>
+      <Card shadow="md" my="md" mah="70vh" style={{ overflow: 'auto' }}>
         {fieldsJsx}
       </Card>
 
-      <Card my="md">
+      <Card shadow="md" my="md">
         <Box style={{ display: 'flex', justifyContent: 'flex-end', gap: '1rem' }}>
           <Button type="button" variant="outline" onClick={service.handleCancel}>Cancel</Button>
           <Button type="submit" variant="primary" onClick={service.handleSave}>Save</Button>

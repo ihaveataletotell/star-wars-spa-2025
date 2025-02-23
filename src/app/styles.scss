@@ -6,6 +6,12 @@ body {
     font-family: sans-serif;
     margin: 0;
     padding: 0;
+
+    --mantine-color-body: #e7f5ff;
+    --body-bg: linear-gradient(45deg, #e7f5ff, #d0ebff);
+
+    background: var(--body-bg);
+    overflow: hidden;
 }
 
 h1 {

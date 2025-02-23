@@ -27,11 +27,11 @@ export function CharsListPage(): JSX.Element | null {
         </Anchor>
       </Breadcrumbs>
 
-      <Card my="md">
+      <Card shadow="md" my="md">
         <CharsForm />
       </Card>
 
-      <Card my="md">
+      <Card shadow="md" my="md">
         <CharsTable onRowClick={handleRowClick} />
       </Card>
     </>
