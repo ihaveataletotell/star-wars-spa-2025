@@ -12,8 +12,9 @@
     "lint:fix": "eslint --fix",
     "typechecking": "tsc --project ./tsconfig.json",
     "test": "vitest --watch=false",
-    "test:e2e": "playwright test",
-    "test:e2e:debug": "playwright test --debug"
+    "test:e2e-locale": "playwright test",
+    "test:e2e-local:debug": "playwright test --debug",
+    "build": "vite build"
   },
   "dependencies": {
     "@mantine/core": "7.17.0",
