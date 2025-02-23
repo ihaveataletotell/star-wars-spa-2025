@@ -38,8 +38,8 @@ export function CharEditForm({ service }: Props): JSX.Element {
 
       <Card my="md">
         <Box style={{ display: 'flex', justifyContent: 'flex-end', gap: '1rem' }}>
-          <Button variant="outline" onClick={service.handleCancel}>Cancel</Button>
-          <Button variant="primary" onClick={service.handleSave}>Save</Button>
+          <Button type="button" variant="outline" onClick={service.handleCancel}>Cancel</Button>
+          <Button type="submit" variant="primary" onClick={service.handleSave}>Save</Button>
         </Box>
       </Card>
     </>

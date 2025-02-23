@@ -52,6 +52,7 @@ export function CharsTable({ onRowClick }: Props) {
       rowStyle={(_, idx) => ({ backgroundColor: idx % 2 ? colors.blue['0'] : colors.blue['1'] })}
       minHeight="30vh"
       opacity={isFaded ? 0.6 : 1}
+      data-fetching={isFaded ? true : void 0}
       // records & state
       fetching={isLoading}
       columns={tableConfig}

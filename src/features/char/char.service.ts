@@ -1,5 +1,6 @@
 import type { CharGetResponse } from 'entities/char/char.types'
 import type { FormStoreStructure } from 'shared/store-form'
+import { setQueryData } from 'entities/char'
 import { charCacheService } from 'entities/char-cache'
 import { routerConfig } from 'entities/router'
 import _ from 'lodash'
@@ -29,6 +30,7 @@ export class CharEditService extends StoreForm<CharGetResponse> {
 
     if (!_.isEqual(value, this.fields)) {
       charCacheService.handleSave({ ...value, edited: new Date().toISOString() })
+      setQueryData(value)
     }
 
     void routerConfig.router.navigate('/chars')

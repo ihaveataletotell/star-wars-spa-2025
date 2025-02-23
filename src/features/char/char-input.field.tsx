@@ -18,7 +18,7 @@ export function CharInputField<Val extends string>({ formKey, label, placeholder
 
   return (
     <InputWrapper mb="xs" maw="300px" label={finalLabel}>
-      <Input disabled={readOnly} placeholder={placeholder} value={value} onChange={handleChange} />
+      <Input data-label={finalLabel} disabled={readOnly} placeholder={placeholder} value={value} onChange={handleChange} />
     </InputWrapper>
   )
 }

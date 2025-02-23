@@ -4,11 +4,19 @@ import type { CharGetRequest, CharGetResponse } from './char.types.ts'
 import { useQuery } from '@tanstack/react-query'
 import { queryClient } from 'entities/query-client'
 import { useMemo } from 'react'
-import { fetchChar } from './char.requests.ts'
+import { fetchChar, getRequestIdFromUrl } from './char.requests.ts'
 
 export function getCharQueryKey(req: CharGetRequest): QueryKey {
   const key = 'character'
   return [key, req.id]
+}
+
+export function setQueryData(value: CharGetResponse): void {
+  const id = getRequestIdFromUrl(value.url)
+
+  if (id !== null) {
+    queryClient.setQueriesData({ queryKey: getCharQueryKey({ id }) }, value)
+  }
 }
 
 type CharGetQuery = UseQueryResult<CharGetResponse, ApiError>
